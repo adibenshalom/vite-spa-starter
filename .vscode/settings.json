@@ -1,0 +1,8 @@
+{
+  "files.exclude": {
+    "**/vite-spa-starter": true
+  },
+  "search.exclude": {
+    "**/vite-spa-starter": true
+  }
+}
