@@ -642,10 +642,83 @@ body {
   z-index: -1;
 }
 
-/* Hero parallax background */
+/* Hero animated gradient background inspired by Ed Sheeran site */
 .hero.parallax-hero .parallax-bg {
-  background: radial-gradient(ellipse at center, rgba(10, 132, 255, 0.3) 0%, rgba(94, 92, 230, 0.2) 25%, rgba(0, 0, 0, 0.8) 70%, #000000 100%),
-              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+  background: linear-gradient(-45deg, #0a84ff, #4287f5, #5e5ce6, #007aff, #1e90ff, #4169e1);
+  background-size: 400% 400%;
+  animation: edSheeranGradient 12s ease infinite;
+}
+
+.hero.parallax-hero .parallax-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(10, 132, 255, 0.3), rgba(94, 92, 230, 0.4), rgba(0, 122, 255, 0.2), rgba(30, 144, 255, 0.3));
+  background-size: 300% 300%;
+  animation: edSheeranGradientOverlay 10s ease infinite reverse;
+  z-index: 1;
+}
+
+.hero.parallax-hero .parallax-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(94, 92, 230, 0.2) 0%, transparent 50%), 
+              radial-gradient(circle at 80% 20%, rgba(0, 122, 255, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(30, 144, 255, 0.2) 0%, transparent 50%);
+  animation: edSheeranRadial 15s ease infinite;
+  z-index: 2;
+}
+
+@keyframes edSheeranGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes edSheeranGradientOverlay {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes edSheeranRadial {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    transform: rotate(120deg) scale(1.1);
+  }
+  66% {
+    transform: rotate(240deg) scale(0.9);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
 }
 
 /* Features section parallax */
@@ -809,17 +882,18 @@ html {
 .parallax-hero .hero-content,
 .parallax-hero .hero-image {
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
-/* Enhanced backdrop for better text readability */
+/* Enhanced backdrop for better text readability - removed black boxes */
 .parallax-section .section-title {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 20px 40px;
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
+  padding: 0;
+  display: block;
+  border: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .parallax-section .feature-card,
@@ -898,6 +972,16 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+  
+  /* Simplify hero animation on mobile */
+  .hero.parallax-hero .parallax-bg {
+    animation-duration: 20s !important;
+  }
+  
+  .hero.parallax-hero .parallax-bg::before,
+  .hero.parallax-hero .parallax-bg::after {
+    display: none;
   }
   
   /* Reduce backdrop blur on mobile */
