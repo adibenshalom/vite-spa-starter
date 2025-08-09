@@ -192,3 +192,83 @@ document.querySelector('#app').innerHTML = `
     </div>
   </footer>
 `
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute('href'))
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  })
+})
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in')
+      if (entry.target.classList.contains('feature-card')) {
+        const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100
+        entry.target.style.animationDelay = `${delay}ms`
+      }
+    }
+  })
+}, observerOptions)
+
+// Add animation classes and observe elements
+document.addEventListener('DOMContentLoaded', () => {
+  // Observe sections for fade-in animations
+  document.querySelectorAll('.section-title, .feature-card, .showcase-text, .specs-table, .pricing-card').forEach(el => {
+    el.classList.add('fade-in-up')
+    observer.observe(el)
+  })
+  
+  // Add typing animation to hero title
+  const heroTitle = document.querySelector('.hero-title')
+  if (heroTitle) {
+    heroTitle.classList.add('typing-animation')
+  }
+  
+  // Initialize particle background
+  createParticles()
+})
+
+// Particle animation system
+function createParticles() {
+  const particleContainer = document.createElement('div')
+  particleContainer.classList.add('particles')
+  document.body.appendChild(particleContainer)
+  
+  for (let i = 0; i < 50; i++) {
+    createParticle(particleContainer)
+  }
+}
+
+function createParticle(container) {
+  const particle = document.createElement('div')
+  particle.classList.add('particle')
+  
+  const size = Math.random() * 3 + 1
+  const duration = Math.random() * 20 + 10
+  const delay = Math.random() * 20
+  
+  particle.style.left = Math.random() * 100 + '%'
+  particle.style.top = Math.random() * 100 + '%'
+  particle.style.width = size + 'px'
+  particle.style.height = size + 'px'
+  particle.style.animationDuration = duration + 's'
+  particle.style.animationDelay = delay + 's'
+  
+  container.appendChild(particle)
+}

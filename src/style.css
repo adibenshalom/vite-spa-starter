@@ -30,6 +30,7 @@ body {
   min-height: 100vh;
   background: var(--background);
   color: var(--text-primary);
+  overflow-x: hidden;
 }
 
 #app {
@@ -154,8 +155,8 @@ body {
 
 .btn-primary:hover {
   background: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 122, 255, 0.3);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 122, 255, 0.4);
 }
 
 .btn-secondary {
@@ -167,7 +168,8 @@ body {
 .btn-secondary:hover {
   background: var(--primary-color);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 122, 255, 0.3);
 }
 
 .btn-primary.large {
@@ -220,7 +222,7 @@ body {
 
 .features {
   padding: 120px 0;
-  background: var(--background);
+  background: linear-gradient(180deg, var(--background) 0%, rgba(28, 28, 30, 0.5) 50%, var(--background) 100%);
 }
 
 .section-title {
@@ -270,7 +272,7 @@ body {
 
 .showcase {
   padding: 120px 0;
-  background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+  background: linear-gradient(180deg, var(--background) 0%, var(--surface) 50%, rgba(28, 28, 30, 0.8) 100%);
 }
 
 .showcase-content {
@@ -375,7 +377,7 @@ body {
 
 .specs {
   padding: 120px 0;
-  background: var(--background);
+  background: linear-gradient(180deg, rgba(28, 28, 30, 0.8) 0%, var(--background) 50%, rgba(28, 28, 30, 0.3) 100%);
 }
 
 .specs-table-container {
@@ -429,7 +431,7 @@ body {
 
 .pricing {
   padding: 120px 0;
-  background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+  background: linear-gradient(180deg, rgba(28, 28, 30, 0.3) 0%, var(--surface) 50%, var(--background) 100%);
 }
 
 .pricing-card {
@@ -582,5 +584,189 @@ body {
   .btn-primary, .btn-secondary {
     width: 100%;
     max-width: 280px;
+  }
+}
+
+/* Animation Styles */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing animation for hero title */
+.hero-title.typing-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title.typing-animation::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  animation: typewriter 2s ease-out forwards;
+}
+
+@keyframes typewriter {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Enhanced button hover animations are already defined above */
+
+/* Parallax scrolling effect */
+.hero {
+  position: relative;
+  background-attachment: fixed;
+  background: linear-gradient(135deg, #1c1c1e 0%, #000000 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g"><stop offset="0%" stop-color="%230a84ff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23000" stop-opacity="0"/></radialGradient></defs><circle cx="500" cy="500" r="400" fill="url(%23g)"/></svg>') no-repeat center;
+  background-size: 100% 100%;
+  transform: translateZ(0);
+  will-change: transform;
+  animation: parallaxFloat 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes parallaxFloat {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(10px) translateY(-10px); }
+  50% { transform: translateX(-5px) translateY(5px); }
+  75% { transform: translateX(-10px) translateY(-5px); }
+}
+
+/* Section gradient transitions are already applied above */
+
+/* Particle animation system */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+/* Pricing card bounce animation */
+.pricing-card {
+  animation: bounceIn 0.8s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Staggered animations for feature cards */
+.feature-card:nth-child(1) { animation-delay: 0s; }
+.feature-card:nth-child(2) { animation-delay: 0.1s; }
+.feature-card:nth-child(3) { animation-delay: 0.2s; }
+.feature-card:nth-child(4) { animation-delay: 0.3s; }
+.feature-card:nth-child(5) { animation-delay: 0.4s; }
+.feature-card:nth-child(6) { animation-delay: 0.5s; }
+
+/* Enhanced feature card hover effects */
+.feature-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 122, 255, 0.15);
+  background: linear-gradient(145deg, var(--surface), rgba(10, 132, 255, 0.05));
+}
+
+/* Hero title hover effect */
+.hero-title:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Section title staggered fade-in */
+.section-title {
+  animation: titleSlideIn 1s ease-out forwards;
+}
+
+@keyframes titleSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced table hover effects */
+.specs-table tr:hover {
+  background: rgba(10, 132, 255, 0.1);
+  transform: scale(1.01);
+  transition: all 0.3s ease;
+}
+
+/* Mobile optimizations for animations */
+@media (max-width: 768px) {
+  .particles {
+    display: none;
+  }
+  
+  .hero::before {
+    animation: none;
+  }
+  
+  .fade-in-up {
+    transform: translateY(20px);
   }
 }
