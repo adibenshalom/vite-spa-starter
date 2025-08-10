@@ -10,25 +10,53 @@ document.querySelector('#app').innerHTML = `
         <a href="#features">Features</a>
         <a href="#specs">Specs</a>
         <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#waitlist">Waitlist</a>
       </div>
     </div>
   </nav>
 
   <section class="hero parallax-hero">
     <div class="parallax-bg" data-parallax="0.5"></div>
-    <div class="hero-content">
-      <h1 class="hero-title" data-aos="zoom-in" data-aos-duration="1200">NeuroWave AI</h1>
-      <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">The future of brain signal analysis</h2>
-      <p class="hero-description" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Experience the revolutionary brain wave signal AI reader that transforms neural activity into actionable insights with unprecedented accuracy.</p>
-      <div class="hero-cta" data-aos="fade-up" data-aos-delay="900">
-        <button class="btn-primary" data-aos="flip-left" data-aos-delay="1200">Pre-order Now</button>
-        <button class="btn-secondary" data-aos="flip-right" data-aos-delay="1400">Watch Demo</button>
-      </div>
+    <div class="floating-orbs">
+      <div class="tech-orb"></div>
+      <div class="tech-orb"></div>
+      <div class="tech-orb"></div>
+      <div class="tech-orb"></div>
+      <div class="tech-orb"></div>
     </div>
-    <div class="hero-image" data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1500">
-      <div class="device-mockup">
-        <div class="device-screen">
-          <div class="brain-wave-animation"></div>
+    <div class="hero-main">
+      <div class="hero-content">
+        <h1 class="hero-title" data-aos="zoom-in" data-aos-duration="1200">NeuroWave AI</h1>
+        <p class="hero-description" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Experience the revolutionary brain wave signal AI reader that transforms neural activity into actionable insights with unprecedented accuracy.</p>
+        <div class="hero-cta" data-aos="fade-up" data-aos-delay="900">
+          <button class="btn-primary" data-aos="flip-left" data-aos-delay="1200">Pre-order Now</button>
+          <button class="btn-secondary" data-aos="flip-right" data-aos-delay="1400">Watch Demo</button>
+        </div>
+      </div>
+      <div class="hero-image" data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1500">
+        <div class="device-mockup">
+          <div class="device-screen">
+            <div class="brain-wave-animation">
+              <div class="neural-network">
+                <div class="neural-node"></div>
+                <div class="neural-node"></div>
+                <div class="neural-node"></div>
+                <div class="neural-node"></div>
+                <div class="neural-node"></div>
+                <div class="neural-node"></div>
+                <div class="neural-node"></div>
+              </div>
+              <div class="brain-waves">
+                <div class="wave-line"></div>
+                <div class="wave-line"></div>
+                <div class="wave-line"></div>
+                <div class="wave-line"></div>
+              </div>
+              <div class="circuit-overlay"></div>
+              <div class="holo-scanner"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -189,6 +217,91 @@ document.querySelector('#app').innerHTML = `
     </div>
   </section>
 
+  <section id="faq" class="faq parallax-section">
+    <div class="parallax-bg" data-parallax="0.3"></div>
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="faq-question">
+            <h3>How accurate is the NeuroWave AI brain signal reading?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>NeuroWave AI achieves 99.7% accuracy in neural pattern recognition, which is FDA-approved medical grade precision. Our advanced AI algorithms process over 10,000 data points per second to ensure the highest level of accuracy in the market.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="faq-question">
+            <h3>Is my brain data secure and private?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely. Your neural data is protected with end-to-end encryption and processed locally on your device. We follow strict privacy-first principles and never share or sell your personal brain data to third parties.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="faq-question">
+            <h3>How long does the battery last?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>The NeuroWave AI device provides 24+ hours of continuous use on a single charge. It features USB-C fast charging that fully recharges the device in just 2 hours.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+          <div class="faq-question">
+            <h3>What devices are compatible with NeuroWave AI?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>NeuroWave AI is compatible with iOS 15+, Android 12+, Windows 11, macOS 12+, and Linux. It connects via Bluetooth 5.2 and Wi-Fi 6E for seamless integration across all your devices.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+          <div class="faq-question">
+            <h3>Can I use NeuroWave AI for medical purposes?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, NeuroWave AI is FDA-approved for medical use. However, always consult with your healthcare provider before using it for medical diagnosis or treatment. The device is designed to complement, not replace, professional medical advice.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+          <div class="faq-question">
+            <h3>What's included in the purchase?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Your NeuroWave AI package includes the main device, professional software suite, 1 year of premium support, free software updates, USB-C charging cable, carrying case, and comprehensive user manual.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="waitlist parallax-section">
+    <div class="parallax-bg" data-parallax="0.4"></div>
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Join the Waitlist</h2>
+      <div class="waitlist-card" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+        <p class="waitlist-description" data-aos="fade-up" data-aos-delay="500">Be among the first to experience the future of brain signal analysis. Get exclusive early access and special pricing.</p>
+        <form class="waitlist-form" id="waitlistForm" data-aos="fade-up" data-aos-delay="700">
+          <div class="form-group">
+            <input type="email" id="emailInput" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-primary">Join Waitlist</button>
+          </div>
+          <p class="form-note">We'll notify you when NeuroWave AI becomes available</p>
+        </form>
+        <div class="success-message" id="successMessage" style="display: none;" data-aos="fade-up">
+          <div class="success-icon">✓</div>
+          <h3>Successfully Added!</h3>
+          <p>Thank you for joining our waitlist. We'll keep you updated on our launch progress and notify you when NeuroWave AI becomes available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-content" data-aos="fade-up" data-aos-duration="1000">
@@ -254,6 +367,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Enhanced smooth scrolling
   initSmoothScrolling()
+  
+  // Initialize FAQ functionality
+  initFAQ()
+  
+  // Initialize waitlist form
+  initWaitlistForm()
 })
 
 // Advanced parallax scrolling system
@@ -326,4 +445,79 @@ function createParticle(container) {
   particle.style.animationDelay = delay + 's'
   
   container.appendChild(particle)
+}
+
+// FAQ functionality
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item')
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question')
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active')
+      
+      // Close all other FAQ items
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active')
+      })
+      
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active')
+      }
+    })
+  })
+}
+
+// Waitlist form functionality
+function initWaitlistForm() {
+  const form = document.getElementById('waitlistForm')
+  const successMessage = document.getElementById('successMessage')
+  
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      
+      const emailInput = document.getElementById('emailInput')
+      const email = emailInput.value.trim()
+      
+      if (email && isValidEmail(email)) {
+        // Mock API call - store email in localStorage for demo
+        const waitlistEmails = JSON.parse(localStorage.getItem('waitlistEmails') || '[]')
+        
+        if (!waitlistEmails.includes(email)) {
+          waitlistEmails.push({
+            email: email,
+            timestamp: new Date().toISOString(),
+            id: Date.now()
+          })
+          localStorage.setItem('waitlistEmails', JSON.stringify(waitlistEmails))
+        }
+        
+        // Show success message with animation
+        form.style.display = 'none'
+        successMessage.style.display = 'block'
+        
+        // Initialize AOS for success message
+        if (typeof AOS !== 'undefined') {
+          AOS.refresh()
+        }
+        
+        // Reset form after 5 seconds (for demo purposes)
+        setTimeout(() => {
+          form.style.display = 'block'
+          successMessage.style.display = 'none'
+          emailInput.value = ''
+        }, 5000)
+        
+        console.log('Email added to waitlist:', email)
+        console.log('Total waitlist emails:', waitlistEmails.length)
+      }
+    })
+  }
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
 }
