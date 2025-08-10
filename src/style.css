@@ -94,7 +94,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 200px 80px 350px;
+  padding: 120px 300px 80px 350px;
   background: linear-gradient(135deg, #1c1c1e 0%, #000000 100%);
 }
 
@@ -996,13 +996,14 @@ body {
   }
   
   .hero {
-    padding: 100px 20px 60px;
+    padding: 100px 80px 60px 100px;
   }
   
   .hero-main {
     flex-direction: column;
     gap: 40px;
     text-align: center;
+    max-width: 100%;
   }
   
   .hero-content {
@@ -1078,7 +1079,12 @@ body {
   }
   
   .hero {
-    padding: 80px 16px 40px;
+    padding: 80px 70px 40px 80px;
+  }
+  
+  .hero-main {
+    max-width: 100%;
+    padding: 0;
   }
   
   .container {
@@ -1646,6 +1652,13 @@ html {
   
   .hero.parallax-hero .parallax-bg::after {
     animation-duration: 32s;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero {
+    padding: 120px 100px 80px 120px;
   }
 }
 
