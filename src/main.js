@@ -30,7 +30,7 @@ document.querySelector('#app').innerHTML = `
         <h1 class="hero-title" data-aos="zoom-in" data-aos-duration="1200">NeuroWave AI</h1>
         <p class="hero-description" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Experience the revolutionary brain wave signal AI reader that transforms neural activity into actionable insights with unprecedented accuracy.</p>
         <div class="hero-cta" data-aos="fade-up" data-aos-delay="900">
-          <button class="btn-primary" data-aos="flip-left" data-aos-delay="1200">Pre-order Now</button>
+          <a href="#waitlist" class="btn-primary" data-aos="flip-left" data-aos-delay="1200">Join Waitlist</a>
           <button class="btn-secondary" data-aos="flip-right" data-aos-delay="1400">Watch Demo</button>
         </div>
       </div>
@@ -211,8 +211,8 @@ document.querySelector('#app').innerHTML = `
           <li data-aos="slide-up" data-aos-delay="1500">Free software updates</li>
           <li data-aos="slide-up" data-aos-delay="1600">30-day money-back guarantee</li>
         </ul>
-        <button class="btn-primary large" data-aos="pulse" data-aos-delay="1800">Pre-order Now</button>
-        <p class="availability" data-aos="fade-in" data-aos-delay="2000">Expected delivery: Q2 2025</p>
+        <a href="#waitlist" class="btn-primary large" data-aos="pulse" data-aos-delay="1800">Join Waitlist</a>
+        <p class="availability" data-aos="fade-in" data-aos-delay="2000">Expected delivery: Q1 2026</p>
       </div>
     </div>
   </section>
@@ -373,6 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize waitlist form
   initWaitlistForm()
+  
+  // Initialize waitlist button redirects
+  initWaitlistButtons()
 })
 
 // Advanced parallax scrolling system
@@ -520,4 +523,48 @@ function initWaitlistForm() {
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
+}
+
+// Handle waitlist button clicks
+function initWaitlistButtons() {
+  const waitlistButtons = document.querySelectorAll('a[href="#waitlist"], .btn-waitlist')
+  
+  waitlistButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault()
+      
+      // Add visual feedback
+      button.style.transform = 'scale(0.95)'
+      setTimeout(() => {
+        button.style.transform = ''
+      }, 150)
+      
+      // Smooth scroll to waitlist section
+      const waitlistSection = document.querySelector('#waitlist')
+      if (waitlistSection) {
+        waitlistSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+        
+        // Focus on email input and highlight section after scrolling
+        setTimeout(() => {
+          const emailInput = document.querySelector('#emailInput')
+          const waitlistCard = document.querySelector('.waitlist-card')
+          
+          if (emailInput) {
+            emailInput.focus()
+          }
+          
+          // Add highlight animation
+          if (waitlistCard) {
+            waitlistCard.style.animation = 'highlightPulse 1.5s ease-out'
+            setTimeout(() => {
+              waitlistCard.style.animation = ''
+            }, 1500)
+          }
+        }, 800)
+      }
+    })
+  })
 }
